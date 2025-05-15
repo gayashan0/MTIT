@@ -19,6 +19,7 @@
         <a-asset-item id="beach-umbrella" src="models/beach-umbrella.glb"></a-asset-item>
         <a-asset-item id="sandcastle" src="models/sandcastle.glb"></a-asset-item>
         <a-asset-item id="beach-ball" src="models/beach-ball.glb"></a-asset-item>
+        <a-asset-item id="seashell" src="models/seashell.glb"></a-asset-item>
 
         <!-- Sound -->
         <audio id="ocean-sound" src="sounds/ocean-wave.mp3" autoplay loop></audio>
@@ -95,6 +96,14 @@
             repeat="indefinite"
           ></a-animation>
         </a-entity>
+
+        <!-- 5. Seashell -->
+        <a-entity
+          gltf-model="#seashell"
+          position="-0.7 0 0.8"
+          scale="0.1 0.1 0.1"
+          rotation="0 30 0"
+        ></a-entity>
 
         <!-- Particle system for sand effect -->
         <a-entity
