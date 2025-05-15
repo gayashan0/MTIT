@@ -18,8 +18,6 @@
         <a-asset-item id="beach-umbrella" src="models/beach-umbrella.glb"></a-asset-item>
         <a-asset-item id="sandcastle" src="models/sandcastle.glb"></a-asset-item>
         <a-asset-item id="beach-ball" src="models/beach-ball.glb"></a-asset-item>
-        <a-asset-item id="cooler" src="models/cooler.glb"></a-asset-item>
-        <a-asset-item id="sillas-de-playa" src="models/sillas-de-playa.glb"></a-asset-item>
 
         <!-- Sound -->
         <audio id="ocean-sound" src="sounds/ocean-wave.mp3" autoplay loop></audio>
@@ -84,38 +82,6 @@
             attribute="rotation"
             to="0 360 0"
             dur="3000"
-            repeat="indefinite"
-          ></a-animation>
-        </a-entity>
-
-        <!-- 4. Cooler with idle animation -->
-        <a-entity
-          gltf-model="#cooler"
-          position="-1 0 -0.8"
-          scale="0.25 0.25 0.25"
-          rotation="0 0 0"
-        >
-          <a-animation
-            attribute="rotation"
-            to="0 0 45"
-            dur="5000"
-            direction="alternate"
-            repeat="indefinite"
-          ></a-animation>
-        </a-entity>
-
-        <!-- 5. Beach Chair (Sillas de Playa) with 'rocking' animation -->
-        <a-entity
-          gltf-model="#sillas-de-playa"
-          position="0.7 0 -1"
-          scale="0.25 0.25 0.25"
-          rotation="0 0 0"
-        >
-          <a-animation
-            attribute="rotation"
-            to="0 0 5"
-            dur="2000"
-            direction="alternate"
             repeat="indefinite"
           ></a-animation>
         </a-entity>
