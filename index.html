@@ -21,6 +21,8 @@
         <a-asset-item id="beach-ball" src="models/beach-ball.glb"></a-asset-item>
         <a-asset-item id="seashell" src="models/seashell.glb"></a-asset-item>
 
+         <a-asset-item id="turtle-obj" src="models/turtle.obj"></a-asset-item>
+
         <!-- Sound -->
         <audio id="ocean-sound" src="sounds/ocean-wave.mp3" autoplay loop></audio>
 
@@ -105,6 +107,14 @@
           rotation="0 30 0"
         ></a-entity>
       </a-marker>
+
+      <!-- 7. Turtle OBJ model -->
+        <a-obj-model
+          src="#turtle-obj"
+          position="0 0 0.3"
+          scale="0.2 0.2 0.2"
+          rotation="0 90 0"
+        ></a-obj-model>
 
         
        
