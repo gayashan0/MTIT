@@ -18,6 +18,7 @@
         <a-asset-item id="beach-umbrella" src="models/beach-umbrella.glb"></a-asset-item>
         <a-asset-item id="sandcastle" src="models/sandcastle.glb"></a-asset-item>
         <a-asset-item id="beach-ball" src="models/beach-ball.glb"></a-asset-item>
+        <a-asset-item id="cooler" src="models/cooler.glb"></a-asset-item>
 
         <!-- Sound -->
         <audio id="ocean-sound" src="sounds/ocean-wave.mp3" autoplay loop></audio>
@@ -72,7 +73,7 @@
           ></a-animation>
         </a-entity>
 
-         <!-- 3. Rotating Beach Ball -->
+        <!-- 3. Rotating Beach Ball -->
         <a-entity
           gltf-model="#beach-ball"
           position="0.5 0.1 -0.8"
@@ -86,6 +87,24 @@
             repeat="indefinite"
           ></a-animation>
         </a-entity>
+
+        <!-- 4. Cooler with idle animation -->
+        <a-entity
+          gltf-model="#cooler"
+          position="-1 0 -0.8"
+          scale="0.25 0.25 0.25"
+          rotation="0 0 0"
+        >
+          <a-animation
+            attribute="rotation"
+            to="0 0 45"
+            dur="5000"
+            direction="alternate"
+            repeat="indefinite"
+          ></a-animation>
+        </a-entity>
+
+
 
         <!-- Particle system for sand effect -->
         <a-entity
