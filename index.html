@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>AR Beach Scene</title>
+
+    <!-- A-Frame and AR.js -->
+    <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
+  </head>
+
+  <body style="margin: 0; overflow: hidden;">
+    <a-scene embedded arjs>
+
+      <!-- Preload beach assets -->
+      <a-assets>
+        <!-- 3D models -->
+        <a-asset-item id="beach-umbrella" src="models/beach-umbrella.glb"></a-asset-item>
+        <a-asset-item id="sandcastle" src="models/sandcastle.glb"></a-asset-item>
+        <a-asset-item id="beach-ball" src="models/beach-ball.glb"></a-asset-item>
+
+
+        <!-- Sound -->
+        <audio id="ocean-sound" src="sounds/ocean-wave.mp3" autoplay loop></audio>
+
+        <!-- Sand texture -->
+        <img id="sand-texture" src="textures/sand.jpg" />
+      </a-assets>
+
+      <!-- Marker -->
+      <a-marker preset="hiro">
+
+        <!-- Ground plane with sand texture -->
+        <a-plane
+          position="0 0 0"
+          rotation="-90 0 0"
+          width="2"
+          height="2"
+          src="#sand-texture"
+          repeat="2 2"
+        ></a-plane>
+
+
+        <!-- 1. Beach umbrella with opening animation -->
+        <a-entity
+          gltf-model="#beach-umbrella"
+          position="0.53 0 0.33"
+          scale="0.2 0.2 0.2"
+          rotation="0 90 0"
+        >
+          <a-animation
+            attribute="scale"
+            to="0.2 0.3 0.2"
+            dur="1500"
+            direction="alternate"
+            repeat="indefinite"
+          ></a-animation>
+        </a-entity>
+
+        <!-- 2. Sandcastle with a slight 'bounce' animation -->
+        <a-entity
+          gltf-model="#sandcastle"
+          position="0 0 0.67"
+          scale="0.25 0.25 0.25"
+          rotation="0 0 0"
+        >
+          <a-animation
+            attribute="position"
+            to="0 0.05 0.67"
+            dur="800"
+            direction="alternate"
+            repeat="indefinite"
+          ></a-animation>
+        </a-entity>
+
+        <!-- 3. Rotating Beach Ball -->
+        <a-entity
+          gltf-model="#beach-ball"
+          position="0.33 0.1 -0.53"
+          scale="0.15 0.15 0.15"
+          rotation="0 0 0"
+        >
+            <a-animation
+              attribute="rotation"
+              to="0 360 0"
+              dur="3000"
+              repeat="indefinite"
+          ></a-animation>
+        </a-entity>
+
+        <!-- Particle system for sand effect -->
+        <a-entity
+          particle-system="preset: dust; color: #F4A261; particles: 5000; size: 1.5; velocityValue: 0 1 0; opacity: 0.5; duration: 2;"
+          position="0 0 0"
+        ></a-entity>
+
+      </a-marker>
+
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>
