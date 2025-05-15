@@ -32,17 +32,17 @@
         <a-plane
           position="0 0 0"
           rotation="-90 0 0"
-          width="2"
-          height="2"
+          width="3"
+          height="3"
           src="#sand-texture"
-          repeat="2 2"
+          repeat="4 4"
         ></a-plane>
 
 
         <!-- 1. Beach umbrella with opening animation -->
         <a-entity
           gltf-model="#beach-umbrella"
-          position="0.53 0 0.33"
+          position="0.8 0 0.5"
           scale="0.2 0.2 0.2"
           rotation="0 90 0"
         >
@@ -58,13 +58,13 @@
         <!-- 2. Sandcastle with a slight 'bounce' animation -->
         <a-entity
           gltf-model="#sandcastle"
-          position="0 0 0.67"
+          position="0 0 1"
           scale="0.25 0.25 0.25"
           rotation="0 0 0"
         >
           <a-animation
             attribute="position"
-            to="0 0.05 0.67"
+            to="0 0.05 1"
             dur="800"
             direction="alternate"
             repeat="indefinite"
