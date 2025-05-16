@@ -4,18 +4,20 @@
     <meta charset="utf-8" />
     <title>AR Beach Scene</title>
 
-    <!-- A-Frame and AR.js -->
+    <!-- Latest A-Frame and AR.js -->
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.min.js"></script>
 
+    <!-- A-Frame Extras for Particle System -->
+    <script src="https://unpkg.com/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
   </head>
 
   <body style="margin: 0; overflow: hidden;">
     <a-scene embedded arjs>
 
-      <!-- Preload beach assets -->
+      <!-- Preload Assets -->
       <a-assets>
-        <!-- 3D models -->
+        <!-- 3D Models -->
         <a-asset-item id="palm-tree" src="models/palm-tree.glb"></a-asset-item>
         <a-asset-item id="beach-umbrella" src="models/beach-umbrella.glb"></a-asset-item>
         <a-asset-item id="sandcastle" src="models/sandcastle.glb"></a-asset-item>
@@ -24,105 +26,104 @@
         <a-asset-item id="turtle-obj" src="models/seaturtle.obj"></a-asset-item>
 
         <!-- Sound -->
-        <audio id="ocean-sound" src="sounds/ocean-wave.mp3" autoplay loop></audio>
+        <audio id="ocean-sound" src="sounds/ocean-wave.mp3"></audio>
 
-        <!-- Sand texture -->
+        <!-- Texture -->
         <img id="sand-texture" src="textures/sand.jpg" />
       </a-assets>
 
-      <!-- Marker -->
+      <!-- Lighting -->
+      <a-entity light="type: ambient; intensity: 1"></a-entity>
+
+      <!-- Marker Content -->
       <a-marker preset="hiro">
+        <!-- Ground Plane -->
+        <a-plane 
+          position="0 0 0" 
+          rotation="-90 0 0" 
+          width="3" 
+          height="3" 
+          src="#sand-texture" 
+          repeat="4 4">
+        </a-plane>
 
-        <!-- Ground plane with sand texture -->
-        <a-plane
-          position="0 0 0"
-          rotation="-90 0 0"
-          width="3"
-          height="3"
-          src="#sand-texture"
-          repeat="4 4"
-        ></a-plane>
-
-        <!-- 1. Palm tree -->
-        <a-entity
-          gltf-model="#palm-tree"
-          position="-1 0 0"
-          scale="0.3 0.3 0.3"
-          rotation="0 45 0"
-        ></a-entity>
-
-
-        <!-- 1. Beach umbrella with opening animation -->
-        <a-entity
-          gltf-model="#beach-umbrella"
-          position="0.8 0 0.5"
-          scale="0.2 0.2 0.2"
-          rotation="0 90 0"
-        >
-          <a-animation
-            attribute="scale"
-            to="0.2 0.3 0.2"
-            dur="1500"
-            direction="alternate"
-            repeat="indefinite"
-          ></a-animation>
-        </a-entity>
-
-        <!-- 2. Sandcastle with a slight 'bounce' animation -->
-        <a-entity
-          gltf-model="#sandcastle"
-          position="0 0 1"
-          scale="0.25 0.25 0.25"
-          rotation="0 0 0"
-        >
-          <a-animation
-            attribute="position"
-            to="0 0.05 1"
-            dur="800"
-            direction="alternate"
-            repeat="indefinite"
-          ></a-animation>
-        </a-entity>
-
-        <!-- 3. Rotating Beach Ball -->
-        <a-entity
-          gltf-model="#beach-ball"
-          position="0.5 0.1 -0.8"
-          scale="0.15 0.15 0.15"
-          rotation="0 0 0"
-        >
-          <a-animation
-            attribute="rotation"
-            to="0 360 0"
-            dur="3000"
-            repeat="indefinite"
-          ></a-animation>
-        </a-entity>
-
-        <!-- 5. Seashell -->
-        <a-entity
-          gltf-model="#seashell"
-          position="-0.7 0 0.8"
-          scale="0.1 0.1 0.1"
-          rotation="0 30 0"
-        ></a-entity>
-
-      
+        <!-- Palm Tree -->
         <a-entity 
-        obj-model="obj: #turtle-obj;"
-        position="0 0 0.3"
-        scale="0.2 0.2 0.2"
-        rotation="0 90 0"
-        ></a-entity>
+          gltf-model="#palm-tree" 
+          position="-1 0 0" 
+          scale="0.3 0.3 0.3" 
+          rotation="0 45 0">
+        </a-entity>
 
-        <!-- Particle system for sand effect -->
-        <a-entity
-          particle-system="preset: dust; color: #F4A261; particles: 5000; size: 1.5; velocityValue: 0 1 0; opacity: 0.5; duration: 2;"
-          position="0 0 0"
-        ></a-entity>
+        <!-- Beach Umbrella with Animation -->
+        <a-entity 
+          gltf-model="#beach-umbrella" 
+          position="0.8 0 0.5" 
+          scale="0.2 0.2 0.2" 
+          rotation="0 90 0">
+          <a-animation 
+            attribute="scale" 
+            to="0.2 0.3 0.2" 
+            dur="1500" 
+            direction="alternate" 
+            repeat="indefinite">
+          </a-animation>
+        </a-entity>
 
+        <!-- Sandcastle with Bounce Animation -->
+        <a-entity 
+          gltf-model="#sandcastle" 
+          position="0 0 1" 
+          scale="0.25 0.25 0.25">
+          <a-animation 
+            attribute="position" 
+            to="0 0.05 1" 
+            dur="800" 
+            direction="alternate" 
+            repeat="indefinite">
+          </a-animation>
+        </a-entity>
+
+        <!-- Rotating Beach Ball -->
+        <a-entity 
+          gltf-model="#beach-ball" 
+          position="0.5 0.1 -0.8" 
+          scale="0.15 0.15 0.15">
+          <a-animation 
+            attribute="rotation" 
+            to="0 360 0" 
+            dur="3000" 
+            repeat="indefinite">
+          </a-animation>
+        </a-entity>
+
+        <!-- Seashell -->
+        <a-entity 
+          gltf-model="#seashell" 
+          position="-0.7 0 0.8" 
+          scale="0.1 0.1 0.1" 
+          rotation="0 30 0">
+        </a-entity>
+
+        <!-- Sea Turtle OBJ Model -->
+        <a-entity 
+          obj-model="obj: #turtle-obj;" 
+          position="0 0 0.3" 
+          scale="0.2 0.2 0.2" 
+          rotation="0 90 0">
+        </a-entity>
+
+        <!-- Particle System for Sand Effect -->
+        <a-entity 
+          particle-system="preset: dust; color: #F4A261; particles: 5000; size: 1.5; velocityValue: 0 1 0; opacity: 0.5; duration: 2;" 
+          position="0 0 0">
+        </a-entity>
+
+        <!-- Sound Playback on Marker Detection -->
+        <a-sound src="#ocean-sound" autoplay="true" loop="true" position="0 1 0"></a-sound>
       </a-marker>
 
+      <!-- Camera -->
       <a-entity camera></a-entity>
     </a-scene>
   </body>
