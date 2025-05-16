@@ -5,14 +5,14 @@
     <title>AR Beach Scene</title>
 
      <!-- A-Frame and AR.js -->
-    <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
   </head>
 
   <body style="margin: 0; overflow: hidden;">
     <a-scene embedded arjs>
 
-      <!-- Preload Assets -->
+      <!-- Preload Beach Assets -->
       <a-assets>
         <!-- 3D Models -->
         <a-asset-item id="palm-tree" src="models/palm-tree.glb"></a-asset-item>
@@ -22,7 +22,7 @@
         <a-asset-item id="turtle-obj" src="models/seaturtle.obj"></a-asset-item>
 
         <!-- Sound -->
-        <audio id="ocean-sound" src="sounds/ocean-wave.mp3"></audio>
+        <audio id="ocean-sound" src="sounds/ocean-wave.mp3" autoplay loop></audio>
 
         <!-- Sand Texture -->
         <img id="sand-texture" src="textures/sand.jpg" />
@@ -33,6 +33,7 @@
 
       <!-- Marker Content -->
       <a-marker preset="hiro">
+
         <!-- Ground Plane with sand texture -->
         <a-plane 
           position="0 0 0" 
@@ -49,7 +50,12 @@
           position="-1 0 0" 
           scale="0.3 0.3 0.3" 
           rotation="0 45 0">
-          <a-animation attribute="rotation" to="0 360 0" dur="8000" repeat="indefinite"></a-animation>
+        <a-animation 
+          attribute="rotation" 
+          to="0 360 0" 
+          dur="8000" 
+          repeat="indefinite">
+        </a-animation>
         </a-entity>
 
         <!-- Beach Umbrella with opening Animation -->
@@ -108,8 +114,6 @@
           position="0 0 0">
         </a-entity>
 
-        <!-- Sound Playback on Marker Detection -->
-        <a-sound src="#ocean-sound" autoplay="true" loop="true" position="0 1 0"></a-sound>
       </a-marker>
 
       <!-- Camera -->
