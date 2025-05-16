@@ -47,13 +47,13 @@
         <!-- Palm Tree -->
         <a-entity 
           gltf-model="#palm-tree" 
-          position="-1 0 0" 
+          position="-1.5 0 0" 
           scale="0.6 0.6 0.6" 
           rotation="0 45 0">
         <a-animation 
           attribute="rotation" 
           to="0 360 0" 
-          dur="8000" 
+          dur="10000" 
           repeat="indefinite">
         </a-animation>
         </a-entity>
@@ -61,12 +61,12 @@
         <!-- Beach Umbrella with opening Animation -->
         <a-entity 
           gltf-model="#beach-umbrella" 
-          position="0.8 0 0.5" 
-          scale="0.4 0.4 0.4" 
+          position="1 0 0.5" 
+          scale="0.5 0.5 0.5" 
           rotation="0 90 0">
           <a-animation 
-            attribute="scale" 
-            to="0.4 0.6 0.4" 
+            attribute="position" 
+            to="1 0.1 0.5" 
             dur="1500" 
             direction="alternate" 
             repeat="indefinite">
@@ -76,12 +76,12 @@
         <!-- Sandcastle with a slight 'bounce' animation -->
         <a-entity 
           gltf-model="#sandcastle" 
-          position="0 0 1" 
-          scale="0.5 0.5 0.5">
+          position="0 0 1.5" 
+          scale="0.7 0.7 0.7">
           <a-animation 
             attribute="position" 
-            to="0 0.05 1" 
-            dur="800" 
+            to="0 0.1 1.5" 
+            dur="1000" 
             direction="alternate" 
             repeat="indefinite">
           </a-animation>
@@ -90,12 +90,19 @@
         <!-- Rotating Beach Ball -->
         <a-entity 
           gltf-model="#beach-ball" 
-          position="0.5 0.1 -0.8" 
-          scale="0.3 0.3 0.3">
+          position="0.8 0.1 -1" 
+          scale="0.5 0.5 0.5">
           <a-animation 
             attribute="rotation" 
             to="0 360 0" 
             dur="3000" 
+            repeat="indefinite">
+          </a-animation>
+          <a-animation 
+            attribute="position" 
+            to="0.8 0.2 -1" 
+            dur="1500" 
+            direction="alternate" 
             repeat="indefinite">
           </a-animation>
         </a-entity>
@@ -106,11 +113,24 @@
           position="0 0 0.3" 
           scale="0.4 0.4 0.4" 
           rotation="0 90 0">
+          <a-animation 
+            attribute="position" 
+            to="0 0.1 0.3" 
+            dur="2000" 
+            direction="alternate" 
+            repeat="indefinite">
+          </a-animation>
+          <a-animation 
+            attribute="rotation" 
+            to="0 450 0" 
+            dur="10000" 
+            repeat="indefinite">
+          </a-animation>
         </a-entity>
 
         <!-- Particle System for Sand Effect -->
         <a-entity 
-          particle-system="preset: dust; color: #F4A261; particles: 5000; size: 1.5; velocityValue: 0 1 0; opacity: 0.5; duration: 2;" 
+          particle-system="preset: dust; color: #F4A261; particles: 1000; size: 1; velocityValue: 0 1 0; opacity: 0.5; duration: 2;" 
           position="0 0 0">
         </a-entity>
 
