@@ -4,12 +4,9 @@
     <meta charset="utf-8" />
     <title>AR Beach Scene</title>
 
-    <!-- Latest A-Frame and AR.js -->
-    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.min.js"></script>
-
-    <!-- A-Frame Extras for Particle System -->
-    <script src="https://unpkg.com/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
+     <!-- A-Frame and AR.js -->
+    <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
   </head>
 
   <body style="margin: 0; overflow: hidden;">
@@ -22,13 +19,12 @@
         <a-asset-item id="beach-umbrella" src="models/beach-umbrella.glb"></a-asset-item>
         <a-asset-item id="sandcastle" src="models/sandcastle.glb"></a-asset-item>
         <a-asset-item id="beach-ball" src="models/beach-ball.glb"></a-asset-item>
-        <a-asset-item id="seashell" src="models/seashell.glb"></a-asset-item>
         <a-asset-item id="turtle-obj" src="models/seaturtle.obj"></a-asset-item>
 
         <!-- Sound -->
         <audio id="ocean-sound" src="sounds/ocean-wave.mp3"></audio>
 
-        <!-- Texture -->
+        <!-- Sand Texture -->
         <img id="sand-texture" src="textures/sand.jpg" />
       </a-assets>
 
@@ -37,7 +33,7 @@
 
       <!-- Marker Content -->
       <a-marker preset="hiro">
-        <!-- Ground Plane -->
+        <!-- Ground Plane with sand texture -->
         <a-plane 
           position="0 0 0" 
           rotation="-90 0 0" 
@@ -53,9 +49,10 @@
           position="-1 0 0" 
           scale="0.3 0.3 0.3" 
           rotation="0 45 0">
+          <a-animation attribute="rotation" to="0 360 0" dur="8000" repeat="indefinite"></a-animation>
         </a-entity>
 
-        <!-- Beach Umbrella with Animation -->
+        <!-- Beach Umbrella with opening Animation -->
         <a-entity 
           gltf-model="#beach-umbrella" 
           position="0.8 0 0.5" 
@@ -70,7 +67,7 @@
           </a-animation>
         </a-entity>
 
-        <!-- Sandcastle with Bounce Animation -->
+        <!-- Sandcastle with a slight 'bounce' animation -->
         <a-entity 
           gltf-model="#sandcastle" 
           position="0 0 1" 
@@ -95,14 +92,6 @@
             dur="3000" 
             repeat="indefinite">
           </a-animation>
-        </a-entity>
-
-        <!-- Seashell -->
-        <a-entity 
-          gltf-model="#seashell" 
-          position="-0.7 0 0.8" 
-          scale="0.1 0.1 0.1" 
-          rotation="0 30 0">
         </a-entity>
 
         <!-- Sea Turtle OBJ Model -->
