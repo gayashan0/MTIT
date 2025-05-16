@@ -5,8 +5,9 @@
     <title>AR Beach Scene</title>
 
     <!-- A-Frame and AR.js -->
-    <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.min.js"></script>
+
   </head>
 
   <body style="margin: 0; overflow: hidden;">
@@ -20,7 +21,7 @@
         <a-asset-item id="sandcastle" src="models/sandcastle.glb"></a-asset-item>
         <a-asset-item id="beach-ball" src="models/beach-ball.glb"></a-asset-item>
         <a-asset-item id="seashell" src="models/seashell.glb"></a-asset-item>
-        <a-asset-item id="turtle-obj" src="'models/seaturtle.obj"></a-asset-item>
+        <a-asset-item id="turtle-obj" src="models/seaturtle.obj"></a-asset-item>
 
         <!-- Sound -->
         <audio id="ocean-sound" src="sounds/ocean-wave.mp3" autoplay loop></audio>
@@ -113,16 +114,6 @@
         scale="0.2 0.2 0.2"
         rotation="0 90 0"
         ></a-entity>
-
-
-
-      </a-marker>
-
-      
-
-     
-        
-       
 
         <!-- Particle system for sand effect -->
         <a-entity
